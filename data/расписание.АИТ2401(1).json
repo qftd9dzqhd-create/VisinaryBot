@@ -1,0 +1,66 @@
+{
+    "days": {
+        "01.06.2026": [
+            {
+                "number": "4",
+                "audience": "А-332"
+            },
+            {
+                "number": "5",
+                "audience": "А-332"
+            }
+        ],
+        "02.06.2026": [
+            {
+                "number": "1",
+                "audience": "А-446"
+            },
+            {
+                "number": "2",
+                "audience": "А-446"
+            },
+            {
+                "number": "3",
+                "audience": "А-446"
+            },
+            {
+                "number": "4",
+                "audience": "А-446"
+            },
+            {
+                "number": "5",
+                "audience": "А-446"
+            },
+            {
+                "number": "6",
+                "audience": "А-446"
+            }
+        ],
+        "05.06.2026": [
+            {
+                "number": "4",
+                "audience": "А-332"
+            },
+            {
+                "number": "5",
+                "audience": "А-332"
+            }
+        ],
+        "08.06.2026": [
+            {
+                "number": "4",
+                "audience": "А-332"
+            }
+        ],
+        "09.06.2026": [
+            {
+                "number": "1",
+                "audience": "А-446"
+            },
+            {
+                "number": "3",
+                "audience": "А-446"
+            }
+        ]
+    }
+}

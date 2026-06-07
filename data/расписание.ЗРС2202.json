@@ -1,0 +1,174 @@
+{
+    "days": {
+        "01.06.2026": [
+            {
+                "number": "4",
+                "audience": "А-311"
+            },
+            {
+                "number": "5",
+                "audience": "А-301"
+            }
+        ],
+        "03.06.2026": [
+            {
+                "number": "4",
+                "audience": "А-310"
+            },
+            {
+                "number": "5",
+                "audience": "А-308"
+            }
+        ],
+        "05.06.2026": [
+            {
+                "number": "4",
+                "audience": "Н-301"
+            },
+            {
+                "number": "5",
+                "audience": "Н-422"
+            }
+        ],
+        "06.06.2026": [
+            {
+                "number": "1",
+                "audience": "А-222"
+            },
+            {
+                "number": "2",
+                "audience": "А-419"
+            },
+            {
+                "number": "3",
+                "audience": "А-УЛК-6"
+            },
+            {
+                "number": "4",
+                "audience": "А-222"
+            }
+        ],
+        "08.06.2026": [
+            {
+                "number": "1",
+                "audience": "А-310"
+            },
+            {
+                "number": "2",
+                "audience": "А-418"
+            },
+            {
+                "number": "3",
+                "audience": "А-505"
+            }
+        ],
+        "09.06.2026": [
+            {
+                "number": "2",
+                "audience": "А-418"
+            },
+            {
+                "number": "4",
+                "audience": "А-300"
+            },
+            {
+                "number": "5",
+                "audience": "А-414"
+            }
+        ],
+        "10.06.2026": [
+            {
+                "number": "2",
+                "audience": "А-309"
+            },
+            {
+                "number": "3",
+                "audience": "А-502"
+            },
+            {
+                "number": "4",
+                "audience": "А-321"
+            }
+        ],
+        "11.06.2026": [
+            {
+                "number": "1",
+                "audience": "А-300"
+            },
+            {
+                "number": "2",
+                "audience": "А-222"
+            }
+        ],
+        "13.06.2026": [
+            {
+                "number": "1",
+                "audience": ""
+            },
+            {
+                "number": "2",
+                "audience": "А-310"
+            },
+            {
+                "number": "3",
+                "audience": "А-412"
+            },
+            {
+                "number": "4",
+                "audience": "А-300"
+            }
+        ],
+        "15.06.2026": [
+            {
+                "number": "3",
+                "audience": "А-222"
+            },
+            {
+                "number": "4",
+                "audience": "А-311"
+            },
+            {
+                "number": "5",
+                "audience": "А-301"
+            }
+        ],
+        "17.06.2026": [
+            {
+                "number": "4",
+                "audience": "А-310"
+            },
+            {
+                "number": "5",
+                "audience": "А-308"
+            }
+        ],
+        "19.06.2026": [
+            {
+                "number": "4",
+                "audience": "Н-301"
+            },
+            {
+                "number": "5",
+                "audience": "Н-422"
+            }
+        ],
+        "20.06.2026": [
+            {
+                "number": "1",
+                "audience": "А-222"
+            },
+            {
+                "number": "2",
+                "audience": "А-419"
+            },
+            {
+                "number": "3",
+                "audience": "А-УЛК-6"
+            },
+            {
+                "number": "4",
+                "audience": "А-222"
+            }
+        ]
+    }
+}

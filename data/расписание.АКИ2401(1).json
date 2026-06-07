@@ -1,0 +1,90 @@
+{
+    "days": {
+        "01.06.2026": [
+            {
+                "number": "1",
+                "audience": "А-412"
+            },
+            {
+                "number": "2",
+                "audience": "А-412"
+            },
+            {
+                "number": "3",
+                "audience": "А-409"
+            },
+            {
+                "number": "4",
+                "audience": "А-332"
+            },
+            {
+                "number": "5",
+                "audience": "А-332"
+            }
+        ],
+        "05.06.2026": [
+            {
+                "number": "1",
+                "audience": "А-504"
+            },
+            {
+                "number": "2",
+                "audience": "А-504"
+            },
+            {
+                "number": "3",
+                "audience": "А-504"
+            },
+            {
+                "number": "4",
+                "audience": "А-332"
+            },
+            {
+                "number": "5",
+                "audience": "А-332"
+            }
+        ],
+        "08.06.2026": [
+            {
+                "number": "1",
+                "audience": "А-504"
+            },
+            {
+                "number": "3",
+                "audience": "А-504"
+            },
+            {
+                "number": "4",
+                "audience": "А-332"
+            }
+        ],
+        "15.06.2026": [
+            {
+                "number": "1",
+                "audience": "А-504"
+            },
+            {
+                "number": "2",
+                "audience": "А-504"
+            },
+            {
+                "number": "3",
+                "audience": "А-504"
+            }
+        ],
+        "22.06.2026": [
+            {
+                "number": "1",
+                "audience": "А-504"
+            },
+            {
+                "number": "2",
+                "audience": "А-504"
+            },
+            {
+                "number": "3",
+                "audience": "А-504"
+            }
+        ]
+    }
+}

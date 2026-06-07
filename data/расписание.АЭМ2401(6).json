@@ -1,0 +1,94 @@
+{
+    "days": {
+        "01.06.2026": [
+            {
+                "number": "1",
+                "audience": "Н-413"
+            },
+            {
+                "number": "2",
+                "audience": "Н-413"
+            },
+            {
+                "number": "3",
+                "audience": "Н-413"
+            },
+            {
+                "number": "4",
+                "audience": "А-332"
+            },
+            {
+                "number": "5",
+                "audience": "А-332"
+            }
+        ],
+        "02.06.2026": [
+            {
+                "number": "1",
+                "audience": "Н-413"
+            },
+            {
+                "number": "2",
+                "audience": "Н-413"
+            },
+            {
+                "number": "3",
+                "audience": "Н-413"
+            }
+        ],
+        "03.06.2026": [
+            {
+                "number": "1",
+                "audience": "Н-413"
+            },
+            {
+                "number": "2",
+                "audience": "Н-413"
+            },
+            {
+                "number": "3",
+                "audience": "Н-413"
+            }
+        ],
+        "04.06.2026": [
+            {
+                "number": "1",
+                "audience": "Н-413"
+            },
+            {
+                "number": "2",
+                "audience": "Н-413"
+            },
+            {
+                "number": "3",
+                "audience": "Н-413"
+            }
+        ],
+        "05.06.2026": [
+            {
+                "number": "4",
+                "audience": "А-332"
+            },
+            {
+                "number": "5",
+                "audience": "А-332"
+            }
+        ],
+        "08.06.2026": [
+            {
+                "number": "1",
+                "audience": "Н-413"
+            },
+            {
+                "number": "4",
+                "audience": "А-332"
+            }
+        ],
+        "15.06.2026": [
+            {
+                "number": "1",
+                "audience": "Н-413"
+            }
+        ]
+    }
+}

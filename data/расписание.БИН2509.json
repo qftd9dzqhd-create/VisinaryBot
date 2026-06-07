@@ -1,0 +1,200 @@
+{
+    "days": {
+        "01.06.2026": [
+            {
+                "number": "3",
+                "audience": "А-УЛК-702"
+            }
+        ],
+        "02.06.2026": [
+            {
+                "number": "2",
+                "audience": "Н-501"
+            },
+            {
+                "number": "3",
+                "audience": "Н-С/Зал"
+            },
+            {
+                "number": "5",
+                "audience": "Н-517"
+            }
+        ],
+        "03.06.2026": [
+            {
+                "number": "4",
+                "audience": "А-413"
+            },
+            {
+                "number": "5",
+                "audience": "А-УЛК-2"
+            }
+        ],
+        "04.06.2026": [
+            {
+                "number": "1",
+                "audience": "Н-428"
+            },
+            {
+                "number": "2",
+                "audience": "Н-501"
+            },
+            {
+                "number": "3",
+                "audience": "Н-506"
+            },
+            {
+                "number": "4",
+                "audience": "Н-305"
+            }
+        ],
+        "05.06.2026": [
+            {
+                "number": "2",
+                "audience": "А-412"
+            },
+            {
+                "number": "3",
+                "audience": "А-УЛК-901"
+            },
+            {
+                "number": "4",
+                "audience": "А-Л-409"
+            },
+            {
+                "number": "5",
+                "audience": "А-УЛК-2"
+            }
+        ],
+        "06.06.2026": [
+            {
+                "number": "2",
+                "audience": "Н-535"
+            },
+            {
+                "number": "4",
+                "audience": "Н-С/Зал"
+            }
+        ],
+        "08.06.2026": [
+            {
+                "number": "2",
+                "audience": "Н-535"
+            },
+            {
+                "number": "4",
+                "audience": "Н-412"
+            }
+        ],
+        "09.06.2026": [
+            {
+                "number": "4",
+                "audience": "Н-131"
+            },
+            {
+                "number": "5",
+                "audience": "Н-228"
+            }
+        ],
+        "10.06.2026": [
+            {
+                "number": "2",
+                "audience": "Н-501"
+            }
+        ],
+        "11.06.2026": [
+            {
+                "number": "1",
+                "audience": "Н-526"
+            },
+            {
+                "number": "2",
+                "audience": "Н-526"
+            }
+        ],
+        "13.06.2026": [
+            {
+                "number": "1",
+                "audience": "Н-526"
+            },
+            {
+                "number": "2",
+                "audience": "Н-526"
+            },
+            {
+                "number": "3",
+                "audience": "Н-С/Зал"
+            },
+            {
+                "number": "4",
+                "audience": "Н-С/Зал"
+            },
+            {
+                "number": "5",
+                "audience": "Н-518а"
+            }
+        ],
+        "15.06.2026": [
+            {
+                "number": "3",
+                "audience": "А-УЛК-702"
+            }
+        ],
+        "16.06.2026": [
+            {
+                "number": "1",
+                "audience": "Н-511"
+            },
+            {
+                "number": "2",
+                "audience": "Н-501"
+            },
+            {
+                "number": "3",
+                "audience": "Н-С/Зал"
+            },
+            {
+                "number": "5",
+                "audience": "Н-517"
+            }
+        ],
+        "17.06.2026": [
+            {
+                "number": "1",
+                "audience": "Н-131"
+            },
+            {
+                "number": "2",
+                "audience": "Н-131"
+            },
+            {
+                "number": "4",
+                "audience": "А-413"
+            }
+        ],
+        "18.06.2026": [
+            {
+                "number": "1",
+                "audience": "Н-131"
+            },
+            {
+                "number": "2",
+                "audience": "Н-526"
+            },
+            {
+                "number": "3",
+                "audience": "Н-506"
+            },
+            {
+                "number": "6",
+                "audience": "Н-535"
+            }
+        ],
+        "19.06.2026": [
+            {
+                "number": "3",
+                "audience": "А-УЛК-705"
+            }
+        ]
+    }
+}
