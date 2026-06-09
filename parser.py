@@ -1,6 +1,14 @@
-import json
 import time
 import requests
+import psycopg2
+from psycopg2.extras import execute_values
+
+db = {
+    "dbname": "visi_db",
+    "user": "semenbarinov",
+    "password": "semenbarinov",
+    "host": "localhost",
+    "port": "5432"}
 
 GROUPS = [
     "М092501(70)", "М092501(71)", "М092501(72)", "М092501(77)",
@@ -74,33 +82,11 @@ GROUPS = [
     "БКК2203", "БКК2204", "БСС2201", "БСС2202", "БСС2203",
     "БСС2204"
 ]
-
 API_URL = "https://mtuci.ru/bitrix/services/main/ajax.php?c=mtuci:timetable&action=getTimetableByValue&mode=class"
-
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
     "X-Requested-With": "XMLHttpRequest"
 }
-
-def cleaner(raw_data):
-    cleaned_days = {}
-    raw_days = raw_data.get("days", {})
-
-    for date, lessons in raw_days.items():
-        cleaned_lessons = []
-        for lesson in lessons:
-            audience_list = lesson.get("UF_AUDIENCE", [])
-            audience = audience_list[0] if audience_list else "Не указана"
-
-            cleaned_lessons.append({
-                "number": lesson.get("UF_NUMBER"),
-                "audience": audience
-            })
-
-        if cleaned_lessons:
-            cleaned_days[date] = cleaned_lessons
-
-    return {"days": cleaned_days}
 
 def parse():
     sessid = input("sessid: ")
@@ -110,12 +96,12 @@ def parse():
     session = requests.Session()
     session.headers.update(HEADERS)
 
-    current_month = "5"
+    data_buffer = {}
 
     for group in GROUPS:
         payload = {
             "VALUE": group,
-            "MONTH": current_month,
+            "MONTH": "5",
             "TYPE": "group",
             "SITE_ID": "s3",
             "sessid": sessid
@@ -127,19 +113,47 @@ def parse():
                 res_json = response.json()
 
                 if res_json.get("status") == "success":
-                    raw_data = res_json.get("data", {})
+                    raw_days = res_json.get("data", {}).get("days", {})
 
-                    filtered_data = cleaner(raw_data)
+                    for date, lessons in raw_days.items():
+                        for lesson in lessons:
+                            aud = lesson.get("UF_AUDIENCE", ["Не указана"])[0]
+                            num = lesson.get("UF_NUMBER")
 
-                    filename = f"расписание.{group}.json"
-                    with open(filename, "w") as f:
-                        json.dump(filtered_data, f, ensure_ascii=False, indent=4)
+                            if aud != "Не указана":
+                                key = (date, num)
+                                if key not in data_buffer:
+                                    data_buffer[key] = set()
+                                data_buffer[key].add(aud)
         except:
             pass
 
+
         time.sleep(1)
 
+    save_db(data_buffer)
+
+
+def save_db(data_buffer):
+    try:
+        connection = psycopg2.connect(**db)
+        cursor = connection.cursor()
+
+        values = [(k[0], k[1], list(v)) for k, v in data_buffer.items()]
+
+        query = """
+        INSERT INTO timetable (date, lesson_number, busy_rooms)
+        VALUES %s
+        ON CONFLICT (date, lesson_number) 
+        DO UPDATE SET busy_rooms = array(SELECT DISTINCT unnest(timetable.busy_rooms || EXCLUDED.busy_rooms));
+        """
+
+        execute_values(cursor, query, values)
+        connection.commit()
+        cursor.close()
+        connection.close()
+    except:
+        pass
+
 parse()
-
-
-#98759f82de41703cd543f25b1604c7af
+#bf430fd0a1e8eefa922989f4e5b5f043

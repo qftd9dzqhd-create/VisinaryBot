@@ -1,14 +1,9 @@
-
-import json
-import os
 from datetime import datetime
 import telebot
 from telebot import types
+import psycopg2
 
-bot = telebot.TeleBot('')
-
-with open("rooms.json", "r") as file:
-    n_rooms = json.load(file)
+bot = telebot.TeleBot('8859793608:AAE66WHIKeRf5FtkBapGN9718oAz9LG28OI')
 
 start_end = {
     1: ("09:30", "11:00"),
@@ -32,6 +27,7 @@ def start_search(message):
 
     bot.send_message(chat_id, f'Здравствуйте, {message.from_user.first_name}! Выберете корпус:', reply_markup=building_markup)
     bot.register_next_step_handler(message, building)
+
 
 def building(message):
     chat_id = message.chat.id
@@ -201,56 +197,58 @@ def size(message):
 
 
 def found_free(user_data):
-    busy_classes = []
+    connection = psycopg2.connect("dbname=visi_db user=semenbarinov password=semenbarinov host=localhost")
+    cursor = connection.cursor()
 
-    if os.path.exists('./data'):
-        for file_name in os.listdir('./data'):
-            if file_name.startswith('расписание'):
-                with open(f'data/{file_name}', 'r') as f:
-                    schedule_data = json.load(f)
+    query = """
+        SELECT r.room_id 
+        FROM rooms r
+        WHERE r.building = %s 
+          AND r.floor = %s 
+          AND r.size = %s
+          AND NOT EXISTS (
+              SELECT 1 
+              FROM timetable t 
+              WHERE t.date = %s 
+              AND t.lesson_number = ANY(%s)
+              AND r.room_id = ANY(t.busy_rooms)
+          );
+    """
 
-                lessons_list = schedule_data.get('days', {}).get(user_data['date'], [])
+    cursor.execute(query, (
+        user_data['building'],
+        user_data['floor'],
+        user_data['size'],
+        user_data['date'],
+        user_data['lessons']))
 
-                for lesson in lessons_list:
-                    if int(lesson['number']) in user_data['lessons'] and lesson['audience']:
-                        aud = lesson['audience'].strip()
-                        if aud not in busy_classes:
-                            busy_classes.append(aud)
+    rows = cursor.fetchall()
+    cursor.close()
+    connection.close()
 
-    free_classes = []
-    current_building = n_rooms.get(user_data['building'], {})
-    for room_name, room_size in current_building.items():
-        try:
-            room_floor = int(room_name[2])
-        except (ValueError, IndexError):
-            continue
-
-        if room_name not in busy_classes and room_floor == user_data['floor'] and room_size == user_data['size']:
-            free_classes.append(room_name)
-
-    return free_classes
+    return [row[0] for row in rows]
 
 
 def result(message):
     chat_id = message.chat.id
     user_map = {
         'А': 'https://mtuci.ru/map/',
-        'Н': 'https://mtuci.ru/map/narod'
-    }
-    current_map = user_sessions[chat_id]['building']
-    current_map = user_map[current_map]
+        'Н': 'https://mtuci.ru/map/narod'}
+    current_map = user_map[user_sessions[chat_id]['building']]
+
     free_rooms = found_free(user_sessions[chat_id])
     if free_rooms:
         result_text = 'Свободные аудитории:\n' + '\n'.join(free_rooms)
     else:
-        result_text = 'По вашем параметрам свободных аудиторий не найдено.'
+        result_text = 'По вашим параметрам свободных аудиторий не найдено.'
 
     bot.send_message(chat_id, result_text, reply_markup=types.ReplyKeyboardRemove())
-    bot.send_message(chat_id, f'Для нового поиска введите /start\nКарта МТУСИ:{current_map}')
+    bot.send_message(chat_id, f'Для нового поиска введите /start\nКарта МТУСИ: {current_map}')
 
 
 @bot.message_handler(commands=['get_map'])
 def site (message):
-    bot.send_message(message.chat.id, 'Карта МТУСИ: https://mtuci.ru/map/narod')
+    bot.send_message(message.chat.id, 'Карта МТУСИ:\n' 'Народное ополчение: https://mtuci.ru/map/narod\n' 'Авиамоторная: https://mtuci.ru/map/')
+
 
 bot.polling(none_stop=True)
